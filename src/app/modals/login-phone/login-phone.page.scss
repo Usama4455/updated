@@ -1,0 +1,58 @@
+.input-left {
+  padding-left: 20%;
+}
+
+.main-content-top-distance {
+  top: 60px;
+}
+
+.login-label {
+  font-size: 13pt;
+}
+
+.col-padding {
+  margin-top:3%;
+}
+
+
+.phone-input {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.fill-vertical-space {
+  height: 30%;
+}
+
+.form-verification {
+  margin-top: 34px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  div{
+    margin-top: 23px;
+    margin-right: 5px;
+    h2{
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #b6b6be;
+    }
+    ion-input{
+      text-align: center;
+      border: 1px solid #870744;
+      border-radius: 5px;
+      margin-top: 8px;
+      font-size: 18px;
+      padding: 3px !important;
+      padding-left: 0px !important;
+      color: #870744;
+      font-weight: 600;
+      --padding-start: 0;
+    }
+    &:last-child{
+      margin-top: 23px;
+      margin-right: 0px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<ion-header class="ion-no-padding">
+    <ion-searchbar class="ion-no-padding" placeholder="Select a City ..." [(ngModel)]="searchTerm"
+                   (ionChange)="setFilteredItems()" (ionFocus)="searchBarFocus()"
+                   (ionCancel)="searchBarCancel()"
+                   (ionClear)="searchBarClear()">
+    </ion-searchbar>
+
+
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="showList">
+    <ion-item *ngFor="let item of items; let i = index;">
+      <ion-label (click)="clickItem(i)">{{ item.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header>
+      Recent Conversations
+    </ion-list-header>
+
+    <div *ngFor="let m of shared.requestListUp">
+      <app-timeline-msg [timelineMsg]="m">
+      </app-timeline-msg>
+    </div>
+
+    <div *ngIf="showLoadMoreMessage">
+      <ion-item>
+        <ion-label (click)="doRefresh($event)">
+          Load More messages
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <div *ngFor="let m of shared.requestListDown">
+      <app-timeline-msg [timelineMsg]="m">
+      </app-timeline-msg>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="10px" #infinite (ionInfinite)="loadMoreRequests(cityOrMain)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button type="button" color="secondary" (click)="initiateNewRequest()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

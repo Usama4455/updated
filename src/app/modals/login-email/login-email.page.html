@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'Login'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #loginForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">{{'Email'}}</ion-label>
+      <ion-input type="email" name="email" [(ngModel)]="shared.userEmail" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{'Password'}}</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="shared.userPassword" required></ion-input>
+    </ion-item>
+
+  </form>
+
+  <div class="column">
+    <div style="margin-left: 10px;">Here</div></div>
+  <div class="column">
+    <ion-button>Test</ion-button>
+  </div>
+  <div class="spacer" style="height: 50px;"
+  ></div>
+  <ion-button>Test</ion-button>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="secondary" (click)="submit()" [disabled]="disableButton()">{{'Login'}}
+  </ion-button>
+</ion-footer>

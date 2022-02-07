@@ -1,0 +1,25 @@
+<ion-header class="ion-no-padding">
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      My Chats
+    </ion-list-header>
+
+    <div *ngFor="let m of shared.requestListDownMyChat" (click)='goToMessages(m)'>
+      <app-timeline-msg [timelineMsg]="m">
+      </app-timeline-msg>
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button type="button" color="secondary" (click)="initiateNewRequest()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+

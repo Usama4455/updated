@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "116848056554",
+    "firebase_url": "https://cliq-20ef3.firebaseio.com",
+    "project_id": "cliq-20ef3",
+    "storage_bucket": "cliq-20ef3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116848056554:android:0f6494a8c287dfad47df93",
+        "android_client_info": {
+          "package_name": "com.pak.cliq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116848056554-7912j1ng8qmcqktkbt69d3svji5h6875.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhw23HU8P6VktQe3ahsva8XgWikuMKzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116848056554-7912j1ng8qmcqktkbt69d3svji5h6875.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,37 @@
+<ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button type="button" icon="arrow-back-outline"></ion-back-button>
+  </ion-buttons>
+  <ion-title> {{'Messages' }} </ion-title>
+
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="messages" #content>
+    <div *ngFor="let message of messagesToShow">
+      <div *ngIf="isSender(message)" class="chatbox right sender">
+        <p style="margin:0">{{message.message}}</p>
+        <span>{{message.date | DateFormat}}</span>
+      </div>
+
+      <div *ngIf="!isSender(message)" class="chatbox left sender">
+        <p style="margin:0">{{message.message}}</p>
+        <span>{{message.date | DateFormat}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item class="bottom_bar">
+
+      <ion-textarea type="text" rows="0" placeholder="Type your message" [(ngModel)]="message" [disabled]="disableSend"></ion-textarea>
+      <ion-button fill="clear" slot="end" (click)="msgSubmit('text')" [disabled]="disableSend">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

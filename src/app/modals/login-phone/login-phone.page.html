@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'Login'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content-top-distance">
+<ion-grid >
+  <ion-row class="main-content-top-distance">
+    <ion-col>
+      <ion-label class="login-label" color="primary"> Please enter your 11 digit phone number</ion-label>
+    </ion-col>
+  </ion-row>
+  <form #loginForm="ngForm" class="form" (ngSubmit)="initialLogin()">
+  <!--    <form #loginForm="ngForm" class="form" (ngSubmit)="initialLoginTwo()"> -->
+
+      <ion-row>
+      <ion-col size="1">
+      </ion-col>
+    <ion-col size="6">
+   <ion-item>
+      <ion-label position="floating">{{'03XXxxxxxxx'|translate}}</ion-label>
+      <ion-input position="floating" class="phone-input" color="primary" type="tel" name="phoneNumber" [(ngModel)]="phoneNumber" required minlength="11" maxlength="11">
+      </ion-input>
+    </ion-item>
+    </ion-col>
+
+      <ion-col size="1">
+      </ion-col>
+
+<ion-col class="col-padding" size="4">
+    <ion-button [disabled]="!loginForm.form.valid || otpButtonDisable" color="primary" expand="block" shape="round" type="submit">
+      {{ otpButtonText }}
+    </ion-button>
+</ion-col>
+  </ion-row>
+  </form>
+
+    <ion-row>
+        <ion-col>
+            <div class="fill-vertical-space"></div>
+        </ion-col>
+    </ion-row>
+<div *ngIf="showVerificationFields">
+   <form #loginForm2="ngForm" (ngSubmit)="checkOTPNumbers()" >
+    <!--    <form #loginForm2="ngForm" (ngSubmit)="verifyClicked()" > -->
+
+        <ion-row>
+        <ion-col class="form-verification">
+                <div>
+                    <ion-input [(ngModel)]="aA" name="a" #a (ionInput)="moveFocusFirst($event,b)" type="tel" required  minlength="1" maxlength="1">
+                    </ion-input>
+                </div>
+
+                <div>
+                    <ion-input [(ngModel)]="bB" name="b" #b (ionInput)="moveFocus($event,c,a)"  type="tel"
+                               required minlength="1" maxlength="1">
+                    </ion-input>
+                </div>
+
+                <div>
+                    <ion-input [(ngModel)]="cC" name="c"  #c (ionInput)="moveFocus($event,d,b)"  type="tel"
+                               required minlength="1" maxlength="1">
+                    </ion-input>
+                </div>
+
+                <div>
+                    <ion-input [(ngModel)]="dD" name="d"  #d (ionInput)="moveFocus($event,e,c)"  type="tel"
+                               required minlength="1" maxlength="1">
+                    </ion-input>
+                </div>
+
+                <div>
+                    <ion-input [(ngModel)]="eE" name="e"  #e (ionInput)="moveFocus($event,f,d)"  type="tel"
+                               required minlength="1" maxlength="1">
+                    </ion-input>
+                </div>
+
+                <div>
+                    <ion-input [(ngModel)]="fF" name="f"  #f (ionInput)="moveFocusLast($event,e)"  type="tel"
+                               required minlength="1" maxlength="1"></ion-input>
+                </div>
+
+        </ion-col>
+    </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button [disabled]="!loginForm2.form.valid || verifyButtonDisable" color="primary" expand="block" type="submit">
+                    {{ 'Verify' | translate }}
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+    <ion-row>
+        <ion-col>
+        </ion-col>
+    </ion-row>
+</div>
+
+</ion-grid>
+
+</ion-content>
+
+<ion-footer>
+    <ion-progress-bar color="primary" value={{progressBarValue}}></ion-progress-bar>
+</ion-footer>

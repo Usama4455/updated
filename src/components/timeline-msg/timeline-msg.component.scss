@@ -1,0 +1,64 @@
+.nametxt {
+  height: 66px;
+  width: 66px;
+  border-radius: 100px;
+  background: var(--ion-color-primary);
+  color: white;
+  font-size: 30px;
+  line-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ // text-transform: uppercase;
+ // margin-top: 50%;
+ // margin-left: 50%;
+}
+
+.item-class {
+  --background: white !important;
+}
+
+.avatar-style {
+zoom: 0.5 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-col {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-text {
+}
+
+.username-text {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0px;
+  margin: 3px !important;
+}
+
+.date-text {
+  padding: 0px;
+  margin: 0px !important;
+}
+
+.col-userdata {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+
+.city-style {
+  font-weight: bold;
+}
+
+.badge-item {
+  --background: white !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  display: flex;
+  justify-content: center;
+}

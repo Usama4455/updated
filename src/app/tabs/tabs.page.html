@@ -1,0 +1,28 @@
+
+<ion-tabs >
+  <ion-tab-bar slot="bottom" color="light">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Timeline</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button tab="my-requests">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>My Requests</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="my-chats" (click)="showUnreadMsg = false" >
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <ion-label>Chats</ion-label>
+        <ion-badge color="secondary" *ngIf="showUnreadMsg === true">New</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings">
+      <ion-icon name="settings-outline"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

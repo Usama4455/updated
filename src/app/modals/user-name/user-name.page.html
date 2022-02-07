@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'Enter Username'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #usernameForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">{{'Username'}}</ion-label>
+      <ion-input type="text" name="username" [(ngModel)]="shared.userName" required
+      placeholder="Username should be unique"></ion-input>
+    </ion-item>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="secondary" (click)="submit()" [disabled]="disableSubmitButton">{{'Submit'}}
+  </ion-button>
+</ion-footer>

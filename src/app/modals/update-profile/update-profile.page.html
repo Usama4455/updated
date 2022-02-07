@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'Update Profile'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="top-distance">
+  <ion-item-divider>
+  <ion-label text-wrap class="text-font-size" color="primary">Please update your profile for better user experience </ion-label>
+  </ion-item-divider>
+  <form #updateForm="ngForm">
+  <ion-item>
+    <ion-label position="floating">{{'First Name'|translate}}</ion-label>
+    <ion-input type="text" name="shipping_firstname" [(ngModel)]="first_name" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">{{'Last Name'|translate}}</ion-label>
+    <ion-input type="text" name="shipping_lastname" [(ngModel)]="last_name" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">{{'Email (optional)'|translate}}</ion-label>
+    <ion-input type="text" name="email" [(ngModel)]="user_email"></ion-input>
+  </ion-item>
+
+
+</form>
+
+</ion-content>
+
+<ion-footer>
+<ion-button expand="full" color="primary" (click)="updateProfile()" [disabled]="!updateForm.form.valid">
+  Update Profile
+</ion-button>
+</ion-footer>

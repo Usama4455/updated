@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>
+      {{'Settings' }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="setting-page">
+  <ion-row class="row-img">
+    <img src="assets/icons_stripe.svg" />
+  </ion-row>
+  <ion-row>
+    <div></div>
+  </ion-row>
+
+  <ion-grid class="ion-padding">
+    <ion-row size="12">
+
+    </ion-row>
+    <ion-row *ngIf="shared.userUid==null" >
+      <ion-col size="12" class="ion-no-padding">
+        <h2>{{ 'Login & Register' | translate }}</h2>
+        <p>{{ 'Please login or create an account for free' | translate }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="shared.userUid!=null">
+      <ion-col size="12" class="ion-no-padding">
+        <h2>{{shared.userName}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-item lines="none" *ngIf="shared.customerData.id!=null">
+    <ion-button color="secondary" (click)="logOut()">{{'Log Out' | translate }}</ion-button>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-item lines="none" *ngIf="shared.userUid!=null">
+    <ion-button color="secondary" (click)="logOut()">{{'Log Out'}}</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input type="file" multiple="multiple"></ion-input>
+  </ion-item>
+</ion-footer>
+Î

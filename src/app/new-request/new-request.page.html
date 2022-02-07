@@ -1,0 +1,81 @@
+z<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button type="button" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{'New Request' }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="button" class="button-text" fill="clear" [disabled]="city ==='' || message === ''"
+      (click)="postSubmit()">
+        <ion-icon class="enter-button" name="enter-outline"></ion-icon>
+        Post
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-searchbar placeholder="Select a City ..." [(ngModel)]="searchTerm"
+                   (ionChange)="setFilteredItems()" (ionFocus)="searchBarFocus()"
+    (ionCancel)="searchBarCancel()" show-cancel-button="always"
+    (ionClear)="searchBarClear()">
+    </ion-searchbar>
+
+    <ion-list *ngIf="showList">
+      <ion-item *ngFor="let item of items; let i = index;">
+        <ion-label (click)="clickItem(i)">{{ item.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+  <ion-item (click)="recordAudio()">
+    <ion-label position="stacked">Record Audio</ion-label>
+    <ion-icon name="recording-outline"></ion-icon>
+  </ion-item>
+
+    <div *ngIf="isAudio">
+      <ion-item (click)="playAudio()">
+        <ion-label position="stacked">Play Audio</ion-label>
+        <ion-icon name="recording-outline"></ion-icon>
+      </ion-item>
+        <ion-item (click)="stopAudio()">
+        <ion-label position="stacked">Stop Audio</ion-label>
+        <ion-icon name="recording-outline"></ion-icon>
+        </ion-item>
+      <ion-item (click)="deleteAudio()">
+        <ion-label position="stacked">Delete Audio</ion-label>
+        <ion-icon name="recording-outline"></ion-icon>
+      </ion-item>
+    </div>
+  <ion-item>
+    <ion-label position="stacked">Message</ion-label>
+    <ion-textarea class="textarea-height" rows="6" placeholder="Type message here" autofocus="true" [(ngModel)]="message">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col *ngFor="let i of imageURIGlobal; let index = index" size-xs="4" size-sm="4" size-md="3" size-lg="3" size-xl="2"  class="ion-no-padding">
+        <app-display-msg-images [imageURI]="i" [index]="index" (deleteEvent)="deleteImage($event)"></app-display-msg-images>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding" size="6">
+        <ion-button type="button" class="ion-no-padding ion-no-margin" expand="full" color="light" (click)="proceedToCamera()">
+          <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col class="ion-no-padding" size="6">
+        <ion-button type="button" class="ion-no-padding ion-no-margin" expand="full" color="light" (click)="proceedToAlbum()">
+          <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
